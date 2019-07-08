@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool isPalindrome(string s) 
+    {
+        if(s.empty()){return true;}
+        vector<char>eff;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s[i]>='A'&&s[i]<='A'+25)
+            {
+                eff.push_back(s[i]-'A'+'a');
+            }
+            else if((s[i]>='a'&&s[i]<='a'+25)||(s[i]>='0'&&s[i]<='0'+9))
+            {
+                eff.push_back(s[i]);
+            }
+        }
+        int n=eff.size();
+        for(int i=0;i<n/2;i++)
+        {
+            if(eff[i]!=eff[n-1-i]){return false;}
+        }
+        return true;
+    }
+};
