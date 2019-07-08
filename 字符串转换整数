@@ -1,0 +1,50 @@
+class Solution {
+public:
+    int myAtoi(string str) 
+    {
+        if(str.empty()){return 0;} 
+        int pos=0;
+        int sign;
+        for(int i=0;i<str.length();i++)
+        {
+            if(str[i]==' '){pos++;}
+            else
+            {
+                if(str[i]=='+'){sign=1;pos++;break;}
+                else if(str[i]=='-'){sign=-1;pos++;break;}
+                else if(str[i]>='0'&&str[i]<='9'){sign=1;break;}
+                else {return 0;}
+            }
+        }
+        if(pos==str.length()){return 0;}
+        for(int j=pos;;j++)
+        {
+            if(str[j]=='0'){pos++;}
+            else if(str[j]>'0'&&str[j]<='9')
+            {
+                break;
+            }
+            else {return 0;}
+        }
+        if(pos==str.length()){return 0;}
+        unsigned long sum=0;
+        for(int k=pos;k<str.length();k++)
+        {
+            if(str[k]>='0'&&str[k]<='9')
+            {
+                sum=sum*10+(str[k]-'0');
+                if(sign==-1&&-sum<INT_MIN){return INT_MIN;}
+                else if(sign==1&&sum>INT_MAX){return INT_MAX;}
+            }
+            else {break;}
+        }
+        if(sign==-1)
+        {
+            return (int)(-sum);
+        }
+        else 
+        {
+            return (int)sum;
+        }
+    }
+};
