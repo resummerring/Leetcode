@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) 
+    {
+        int m=s.length();
+        int n=t.length();
+        if(m!=n){return false;}
+        int s_num[26]={0};
+        int t_num[26]={0};
+        for(int i=0;i<n;i++)
+        {
+            s_num[s[i]-'a']+=1;
+        }
+        for(int j=0;j<n;j++)
+        {
+            t_num[t[j]-'a']+=1;
+        }
+        for(int i=0;i<26;i++)
+        {
+            if(s_num[i]!=t_num[i]){return false;}
+        }          
+        return true;
+    }
+};
