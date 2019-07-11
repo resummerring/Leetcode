@@ -1,0 +1,22 @@
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) 
+    {
+        if(m==0){nums1.assign(nums2.begin(),nums2.end());return;}
+        int num=m;
+        int i;
+        for(i=0;i<n;i++)
+        {
+            int j;
+            for(j=0;j<num;j++)
+            {
+                if(nums1[j]>nums2[i]){num++;nums1.insert(nums1.begin()+j,nums2[i]);nums1.pop_back();break;}
+            }
+            if(j==num){break;}
+        }
+        for(int k=i;k<n;k++)
+        {
+            nums1[m+k]=nums2[k];
+        }
+    }
+};
