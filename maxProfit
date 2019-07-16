@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) 
+    {
+        if(prices.empty()){return 0;}
+        int n=prices.size();
+        for(int i=n-1;i>0;i--)
+        {
+            prices[i]=prices[i]-prices[i-1];
+        }
+        prices[0]=0;
+        double T=prices[0],Vmax=prices[0];
+        double Tmin=0;
+        for(int i=1;i<n;i++)
+        {
+            T+=prices[i];
+            if(T-Tmin>Vmax){Vmax=T-Tmin;}
+            if(T<Tmin){Tmin=T;}
+        }
+        if(Vmax<=0){return 0;}
+        else {return Vmax;}
+    }
+};
