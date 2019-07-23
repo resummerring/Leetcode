@@ -1,0 +1,25 @@
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        result_not_in=[]
+        result_in=[]
+        result=[]
+        for element in arr1:
+            if element not in arr2:
+                result_not_in.append(element)
+            else:
+                result_in.append(element)
+        num=collections.Counter(result_in)
+        for element in arr2:
+            result+=[element]*num[element]
+        result_not_in.sort()
+        result+=result_not_in
+        return result
+            
+            
+            
+            
+        
+            
+            
+            
+        
