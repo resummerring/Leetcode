@@ -1,0 +1,22 @@
+class Solution:
+    def largestSumAfterKNegations(self, A: List[int], K: int) -> int:
+        neg=[x for x in A if x<0]
+        pos=[x for x in A if x>=0]
+        neg.sort()
+        i=0
+        while(i<K and i<len(neg)):
+            neg[i]=-neg[i]
+            i+=1
+        left=max(K-i,0)
+        if left%2==0:
+            return sum(pos)+sum(neg)
+        else:
+            return sum(pos)+sum(neg)-2*min([abs(x) for x in A])
+        
+            
+            
+            
+            
+            
+            
+        
