@@ -1,0 +1,14 @@
+class Solution:
+    def numMovesStones(self, a: int, b: int, c: int) -> List[int]:
+        x=[a,b,c]
+        x.sort()
+        small=min(x[2]-x[1]-1,x[1]-x[0]-1)
+        big=max(x[2]-x[1]-1,x[1]-x[0]-1)
+        if small==0 and big==0:
+            return [0,0]
+        elif small==0 or small==1:
+            return [1,small+big]
+        else:
+            return [2,small+big]
+
+        
