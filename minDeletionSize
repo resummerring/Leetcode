@@ -1,0 +1,9 @@
+class Solution:
+    def minDeletionSize(self, A: List[str]) -> int:
+        columns=zip(*A)
+        D=0
+        for col in columns:
+            if sorted(col)!=list(col): D+=1
+        return D
+        
+        
