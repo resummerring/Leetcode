@@ -1,0 +1,27 @@
+class Solution:
+    def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:
+        dx=[0,1,0,-1]
+        dy=[1,0,-1,0]
+        x=0
+        y=0
+        i=0
+        max_dis=0
+        obstacleSet=set(map(tuple,obstacles))
+        for item in commands:
+            if item==-1: 
+                i=(i+1)%4
+            elif item==-2: 
+                i=(i-1)%4
+            else:
+                for j in range(item):
+                    if (x+dx[i],y+dy[i]) not in obstacleSet:
+                        x=x+dx[i]
+                        y=y+dy[i]
+                max_dis=max(max_dis,x**2+y**2)
+        return max_dis
+               
+                
+            
+            
+            
+        
