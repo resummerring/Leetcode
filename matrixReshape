@@ -1,0 +1,23 @@
+import numpy as np
+class Solution:
+    def matrixReshape(self, nums: List[List[int]], r: int, c: int) -> List[List[int]]:
+        r_0=len(nums)
+        c_0=len(nums[0])
+        if r*c!=r_0*c_0 or r==r_0:
+            return nums
+        result=np.array(np.zeros((r,c)),dtype=np.int)
+        for i in range(r):
+            for j in range(c):
+                pos=i*c+j
+                i_0=pos//c_0
+                j_0=pos-i_0*c_0
+                result[i][j]=nums[i_0][j_0]
+        return result
+
+
+            
+                    
+            
+        
+        
+        
