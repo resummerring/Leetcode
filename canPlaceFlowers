@@ -1,0 +1,21 @@
+class Solution:
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+        result=[]
+        num=0
+        for i in range(len(flowerbed)):
+            if flowerbed[i]==1:
+                result.append(i)
+        if len(result)==0:
+            num=(len(flowerbed)+1)//2
+        else:
+            num+=result[0]//2
+            num+=(len(flowerbed)-result[-1]-1)//2     
+            for i in range(len(result)-1):
+                result[i]=result[i+1]-result[i]-1
+                num+=max(0,(result[i]-1)//2)
+        return num>m
+            
+        
+        
+                
+        
