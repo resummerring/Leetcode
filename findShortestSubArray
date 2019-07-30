@@ -1,0 +1,17 @@
+import collections
+import numpy as np
+class Solution:
+    def findShortestSubArray(self, nums: List[int]) -> int:
+        summary=collections.Counter(nums)
+        max_num=summary.most_common(1)[0][1]
+        index=[item for item in summary if summary[item]==max_num]
+        nums=np.array(nums)
+        length=[]
+        for item in index:
+            pos=np.where(nums==item)
+            length.append(pos[0][-1]-pos[0][0]+1)
+        return min(length)
+            
+            
+            
+        
