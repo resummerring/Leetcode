@@ -1,0 +1,26 @@
+class Solution:
+    def imageSmoother(self, M: List[List[int]]) -> List[List[int]]:
+        r=len(M)
+        c=len(M[0])
+        result=[]
+        direction=[[-1,1],[-1,0],[-1,-1],[0,1],[0,-1],[1,-1],[1,0],[1,1]]
+        for i in range(r):
+            row=[]
+            for j in range(c):
+                count=1
+                num=M[i][j]
+                for _dir in direction:
+                    x=i+_dir[0]
+                    y=j+_dir[1]
+                    if x>=0 and x<r and y>=0 and y<c:
+                        count+=1
+                        num+=M[x][y]
+                num=num//count
+                row.append(num)
+            result.append(row)
+        return result
+                        
+                        
+                        
+                        
+        
