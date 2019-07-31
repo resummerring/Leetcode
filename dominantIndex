@@ -1,0 +1,13 @@
+class Solution:
+    def dominantIndex(self, nums: List[int]) -> int:
+        max_v=max(nums)
+        nums_else=[x for x in nums if x!=max_v]
+        if len(nums_else)==0:
+            return 0
+        else:
+            max_sec=max(nums_else)
+        if max_v>=2*max_sec:
+            return nums.index(max_v)
+        else:
+            return -1
+        
