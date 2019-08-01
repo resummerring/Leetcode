@@ -1,0 +1,22 @@
+import collections
+class Solution:
+    def hasGroupsSizeX(self, deck: List[int]) -> bool:
+        summary=collections.Counter(deck)
+        stat=summary.most_common()
+        min_num=stat[-1][1]
+        if min_num==1:
+            return False
+        min_fac=[]
+        for i in range(2,min_num+1):
+            if min_num%i==0:
+                min_fac.append(i)
+        for fac in min_fac:
+            j=0
+            while(j<len(stat)):
+                if stat[j][1]%fac!=0:
+                    break
+                j+=1
+            if j==len(stat):
+                  return True
+        return False
+        
