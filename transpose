@@ -1,0 +1,13 @@
+class Solution:
+    def transpose(self, A: List[List[int]]) -> List[List[int]]:
+        c=len(A)
+        r=len(A[0])
+        result=[]
+        for i in range(r):
+            row=[0]*c
+            for j in range(c):
+                row[j]=A[j][i]
+            result.append(row)
+        return result
+                
+        
