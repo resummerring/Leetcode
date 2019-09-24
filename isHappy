@@ -1,0 +1,12 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        fast = sum(int(char)**2 for char in str(n))
+        slow = n
+        while(slow != fast):
+            slow = sum(int(char)**2 for char in str(slow))
+            fast = sum(int(char)**2 for char in str(fast))
+            fast = sum(int(char)**2 for char in str(fast))
+        return slow == 1
+            
+        
+        
