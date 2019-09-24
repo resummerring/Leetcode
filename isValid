@@ -1,0 +1,14 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        pair_dict = {'{':'}','(':')','[':']','?':'?'}
+        stack = ['?']
+        for char in s:
+            if char in pair_dict:
+                stack.append(char)
+            elif pair_dict[stack.pop()]!=char:
+                return False
+        return len(stack) == 1
+    
+        
+        
+                
